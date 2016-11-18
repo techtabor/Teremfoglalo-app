@@ -1,3 +1,25 @@
 tr {
 	border: none;
 }
+
+#tableTitle{
+	border-bottom: 5px solid black;
+	padding: 10px 1px 10px 1px;
+	font-size: 30px;
+	background-color: #F0F8FF;
+}
+
+.napok{
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	border-left: 2px solid black;
+	
+}
+
+.ora{
+	padding: 40px 1px 40px 20px;
+}
+
+table{
+	width: 1250px;
+}
