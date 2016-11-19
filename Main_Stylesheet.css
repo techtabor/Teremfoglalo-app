@@ -13,13 +13,41 @@ tr {
 	border-bottom: 2px solid black;
 	border-right: 2px solid black;
 	border-left: 2px solid black;
-	
+	width: 220px;
 }
 
 .ora{
-	padding: 40px 1px 40px 20px;
+	padding: 40px;
+	width: 50px;
+	background-color: #F0F8FF;
+	font-weight: bold;
+	font-size: 20px;
 }
 
 table{
 	width: 1250px;
+}
+
+body {
+	background-color: 	#F5F5DC;
+}
+
+#hetfo{
+	background-color: 	#00FFFF;
+}
+
+#kedd{
+	background-color: #ADFF2F;
+}
+
+#szerda{
+	background-color: 	#FFA500;
+}
+
+#csutortok{
+	background-color: 	#FFB6C1; 
+}
+
+#pentek{
+	background-color: 	#FFFF00;
 }
