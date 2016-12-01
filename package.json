@@ -1,0 +1,10 @@
+{
+  "name": "Teremfoglalo-app",
+  "version": "1.0.0",
+  "description": "Teremfoglalás, órarend, stb.",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "ejs": "^2.5.3"
+  }
+}

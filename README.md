@@ -4,8 +4,8 @@
 Node-ban futtatod az **app.js** fájlt, ekkor a szerver elérhető lesz a *localhost:3000* címen.
 
 ## Nodejs modules:
-...
+
 - express
 - ejs
-...
-Ezeket kell felrakni elvileg, hogy működjön.
+
+Futtatod az *npm install* parancsot Node-ban, és elvileg felrakja a modulokat magától.
