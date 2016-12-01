@@ -32,6 +32,24 @@ body {
 	background-color: 	#F5F5DC;
 }
 
+#header{
+	background-color: #000000;
+	text-align: center;
+	height: 50px;
+}
+
+.headerlink{
+	color:  #FFFAF0;
+	padding: 20px;
+	font-size: 30px;
+	text-decoration: none;
+}
+
+#header:hover{
+	background-color: #778899;
+	font-weight: bold;
+}
+
 #hetfo{
 	background-color: 	#00FFFF;
 }
