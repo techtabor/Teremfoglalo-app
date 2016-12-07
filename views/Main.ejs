@@ -19,11 +19,28 @@
 					<th class="napok"; id="szerda">Szerda</th>
 					<th class="napok"; id="csutortok">Csütörtök</th>
 					<th class="napok"; id="pentek">Péntek</th>
-				</tr>			
+				</tr>
 			</thead>
 			<tbody>
-				<tr>
+
+
+				<% orak.osszorak.forEach(function(item1){ %>
+					<tr>
+						<% item1.hetiorak.forEach(function(item2){ %>
+							<% if(item2.oraszam){ %>
+								<td class="ora"><%= item2.oraszam %></td>
+							<% } else{ %>
+								<td><%= item2.ora %></td>
+							<% }; %>
+						<% }); %>
+					</tr>
+				<% }); %>
+
+
+
+				<!-- <tr>
 					<td class="ora">1. óra</td>
+
 				</tr>
 				<tr>
 					<td class="ora">2. óra</td>
@@ -45,8 +62,8 @@
 				</tr>
 				<tr>
 					<td class="ora">8. óra</td>
-				</tr>
-			
+				</tr> -->
+
 			</tbody>
 		</table>
 	</div>

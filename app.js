@@ -16,6 +16,7 @@ app.use(function(req, res, err){
     if(err){
         fs.createReadStream('./views/Error.ejs').pipe(res);
         console.log("Error 404: Someone requested a non-existing page");
+        console.log(err);
     }
 });
 

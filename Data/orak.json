@@ -1,0 +1,93 @@
+{
+  "osszorak":
+  [
+    {
+      "hetiorak":
+      [
+        {"oraszam": "1. óra"},
+        {"ora": "matek"},
+        {"ora": "kémia"},
+        {"ora": "rajz"},
+        {"ora": "fizika"},
+        {"ora": "biosz"}
+      ]
+    },
+    {
+      "hetiorak":
+      [
+        {"oraszam": "2. óra"},
+        {"ora": "matek"},
+        {"ora": "kémia"},
+        {"ora": "rajz"},
+        {"ora": "fizika"},
+        {"ora": "biosz"}
+      ]
+    },
+    {
+      "hetiorak":
+      [
+        {"oraszam": "3. óra"},
+        {"ora": "matek"},
+        {"ora": "kémia"},
+        {"ora": "rajz"},
+        {"ora": "fizika"},
+        {"ora": "biosz"}
+      ]
+    },
+    {
+      "hetiorak":
+      [
+        {"oraszam": "4. óra"},
+        {"ora": "matek"},
+        {"ora": "kémia"},
+        {"ora": "rajz"},
+        {"ora": "fizika"},
+        {"ora": "biosz"}
+      ]
+    },
+    {
+      "hetiorak":
+      [
+        {"oraszam": "5. óra"},
+        {"ora": "matek"},
+        {"ora": "kémia"},
+        {"ora": "rajz"},
+        {"ora": "fizika"},
+        {"ora": "biosz"}
+      ]
+    },
+    {
+      "hetiorak":
+      [
+        {"oraszam": "6. óra"},
+        {"ora": "matek"},
+        {"ora": "kémia"},
+        {"ora": "rajz"},
+        {"ora": "fizika"},
+        {"ora": "biosz"}
+      ]
+    },
+    {
+      "hetiorak":
+      [
+        {"oraszam": "7. óra"},
+        {"ora": "matek"},
+        {"ora": "kémia"},
+        {"ora": "rajz"},
+        {"ora": "fizika"},
+        {"ora": "biosz"}
+      ]
+    },
+    {
+      "hetiorak":
+      [
+        {"oraszam": "8. óra"},
+        {"ora": "matek"},
+        {"ora": "kémia"},
+        {"ora": "rajz"},
+        {"ora": "fizika"},
+        {"ora": "biosz"}
+      ]
+    }
+  ]
+}

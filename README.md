@@ -9,3 +9,7 @@ Node-ban futtatod az **app.js** fájlt, ekkor a szerver elérhető lesz a *local
 - ejs
 
 Futtatod az *npm install* parancsot Node-ban, és elvileg felrakja a modulokat magától.
+
+## Órarend:
+
+A **./Data/orak.json** fájl az órarend, ebbe lehet beírni az órákat.
