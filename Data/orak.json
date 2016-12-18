@@ -16,64 +16,64 @@
       "hetiorak":
       [
         {"oraszam": "2. óra"},
-        {"ora": "matek"},
         {"ora": "kémia"},
-        {"ora": "rajz"},
-        {"ora": "fizika"},
-        {"ora": "biosz"}
+        {"ora": "angol"},
+        {"ora": "német"},
+        {"ora": "tesi"},
+        {"ora": "ofő"}
       ]
     },
     {
       "hetiorak":
       [
         {"oraszam": "3. óra"},
-        {"ora": "matek"},
-        {"ora": "kémia"},
-        {"ora": "rajz"},
-        {"ora": "fizika"},
-        {"ora": "biosz"}
+        {"ora": "irodalom"},
+        {"ora": "nyelvtan"},
+        {"ora": "töri"},
+        {"ora": "biosz"},
+        {"ora": "fizika"}
       ]
     },
     {
       "hetiorak":
       [
         {"oraszam": "4. óra"},
-        {"ora": "matek"},
-        {"ora": "kémia"},
         {"ora": "rajz"},
+        {"ora": "ének"},
         {"ora": "fizika"},
-        {"ora": "biosz"}
+        {"ora": "matek"},
+        {"ora": "tesi"}
       ]
     },
     {
       "hetiorak":
       [
         {"oraszam": "5. óra"},
-        {"ora": "matek"},
-        {"ora": "kémia"},
-        {"ora": "rajz"},
-        {"ora": "fizika"},
-        {"ora": "biosz"}
+        {"ora": "Földrajz"},
+        {"ora": "Fizika fakt"},
+        {"ora": "hittan"},
+        {"ora": "nyelvtan"},
+        {"ora": "angol"}
       ]
     },
     {
       "hetiorak":
       [
         {"oraszam": "6. óra"},
-        {"ora": "matek"},
-        {"ora": "kémia"},
-        {"ora": "rajz"},
-        {"ora": "fizika"},
-        {"ora": "biosz"}
+        {"ora": "töri"},
+        {"ora": "infó"},
+        {"ora": "tesi"},
+        {"ora": "német"},
+        {"ora": "matek"}
       ]
     },
     {
       "hetiorak":
       [
         {"oraszam": "7. óra"},
-        {"ora": "matek"},
+        {"ora": ""},
         {"ora": "kémia"},
-        {"ora": "rajz"},
+        {"ora": ""},
         {"ora": "fizika"},
         {"ora": "biosz"}
       ]
@@ -82,11 +82,11 @@
       "hetiorak":
       [
         {"oraszam": "8. óra"},
-        {"ora": "matek"},
-        {"ora": "kémia"},
-        {"ora": "rajz"},
-        {"ora": "fizika"},
-        {"ora": "biosz"}
+        {"ora": "Techtábor programozás"},
+        {"ora": "Techtábor programozás"},
+        {"ora": "Techtábor programozás"},
+        {"ora": "Techtábor programozás"},
+        {"ora": "Techtábor programozás"}
       ]
     }
   ]
