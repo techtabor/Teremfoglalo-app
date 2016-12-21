@@ -9,5 +9,9 @@
     "ejs": "^2.5.3",
     "body-parser": "^2.15.9",
     "sqlite3": "^2.15.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techtabor/Teremfoglalo-app.git"
   }
 }
