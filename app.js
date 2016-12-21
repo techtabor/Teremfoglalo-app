@@ -26,8 +26,9 @@ app.use('/', main);
 app.post('/submit', function(req, res){
   console.log("Someone submitted a form");
   var name = req.body.name;
-  //var id = req.body.name;
+  var id = req.body.id;
   res.send(name);
+  console.log(id);
 });
 
 //create http server
