@@ -23,46 +23,28 @@
 			</thead>
 			<tbody>
 
-
-				<% orak.osszorak.forEach(function(item1){ %>
+				<% for(var i = 0; i < hossz; i++){ %>
 					<tr>
-						<% item1.hetiorak.forEach(function(item2){ %>
-							<% if(item2.oraszam){ %>
-								<td class="ora"><%= item2.oraszam %></td>
-							<% } else{ %>
-								<td><%= item2.ora %></td>
+						<% for (var j = 0; j < 6; j++){ %>
+							<% if (i*j === 0 && j === 0){ %>
+								<td class="ora">
+									<%= oraarray[i][j].oraszam %>
+								</td>
+							<% }else{ %>
+								<td>
+									<%= oraarray[i][j].ora %>
+									<form action="/submit" method="post">
+										<input type="text" name="name"></input>
+										<input type="hidden" name="id" value="" id="hidden"/>
+										<input type="submit" value="submit"></input>
+									</form>
+								</td>
 							<% }; %>
-						<% }); %>
+						<% }; %>
 					</tr>
-				<% }); %>
+				<% }; %>
 
-
-
-				<!-- <tr>
-					<td class="ora">1. óra</td>
-
-				</tr>
-				<tr>
-					<td class="ora">2. óra</td>
-				</tr>
-				<tr>
-					<td class="ora">3. óra</td>
-				</tr>
-				<tr>
-					<td class="ora">4. óra</td>
-				</tr>
-				<tr>
-					<td class="ora">5. óra</td>
-				</tr>
-				<tr>
-					<td class="ora">6. óra</td>
-				</tr>
-				<tr>
-					<td class="ora">7. óra</td>
-				</tr>
-				<tr>
-					<td class="ora">8. óra</td>
-				</tr> -->
+				
 
 			</tbody>
 		</table>

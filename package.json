@@ -6,6 +6,8 @@
   "author": "KD-VT",
   "dependencies": {
     "express": "^4.14.0",
-    "ejs": "^2.5.3"
+    "ejs": "^2.5.3",
+    "body-parser": "^2.15.9",
+    "sqlite3": "^2.15.9"
   }
 }
