@@ -24,7 +24,8 @@ router.get('/', function(req, res){
     console.log("Request jött a homepage-re");
 });
 
-router.get('/submit')
+//router.get('/submit')
 
 module.exports = router;
-//module.exports = oraarray;
+module.exports.oraarray = oraarray;
+module.exports.orak = orak;
