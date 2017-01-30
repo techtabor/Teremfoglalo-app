@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 
 var main = require('./routes/main.js');
 var submit = require('./routes/submit.js');
+var newmain = require('./routes/newmain.js')
 //var orak = require('./Data/orak.json');
 
 //set the view engine to ejs
@@ -13,7 +14,9 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/', main);
+//app.use('/', main);
+
+app.use('/', newmain);
 
 //Send 404 response
 /*app.use(function(req, res, err){
