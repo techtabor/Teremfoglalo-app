@@ -5,16 +5,31 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   </head>
   <body>
+    <script type="text/javascript">
+
+    function teremGomb(szam) {
+      console.log(szam);
+      if (szam == 42){
+        for (var j = 2; j < 41; j += 2){
+          var k = j.toString();
+          document.getElementById(k).style.backgroundColor = "black";
+        };
+      };
+    };
+    function tanarGomb(tanar) {
+      console.log(tanar);
+    };
+    </script>
     <div class="container-fluid"; style="text-align:center">
       <table class="table table-stripped table-bordered table-hover table-condensed table-responsive"; style="text-align:center">
         <thead>
           <tr>
             <th colspan="2">Teremszámok:</th>
-            <th>42</th>
-            <th>43</th>
-            <th>44</th>
-            <th>420</th>
-            <th>69</th>
+            <th><a href="#" onclick="teremGomb(42)">42</a></th>
+            <th><a href="#" onclick="teremGomb(43)">43</a></th>
+            <th><a href="#" onclick="teremGomb(44)">44</a></th>
+            <th><a href="#" onclick="teremGomb(420)">420</a></th>
+            <th><a href="#" onclick="teremGomb(69)">69</a></th>
           </tr>
           <tr>
             <th colspan="2">Tanárok:</th>
@@ -27,51 +42,60 @@
         </thead>
         <tbody>
           <tr>
-            <td>D.M.A.</td>
+            <td><a href="#" onclick="tanarGomb(1)">D.M.A.</a></td>
             <td>1. óra</td>
             <% for (var i = 0; i < 5; i++) { %>
-            <td><div><div></div></div></td>
+            <td><div id="<%= i+1 %>">X<div></div></div></td>
             <% } %>
           </tr>
           <tr>
-            <td>N.L.</td>
+            <td><a href="#" onclick="tanarGomb(2)">N.L.</a></td>
             <td>2. óra</td>
             <% for (var i = 0; i < 5; i++) { %>
-            <td><div><div></div></div></td>
+            <td><div id="<%= 5+i+1 %>">X<div></div></div></td>
             <% } %>
           </tr>
           <tr>
-            <td>Sz.G.</td>
+            <td><a href="#" onclick="tanarGomb(3)">Sz.G.</a></td>
             <td>3. óra</td>
             <% for (var i = 0; i < 5; i++) { %>
-            <td><div><div></div></div></td>
+            <td><div id="<%= 10+i+1 %>">X<div></div></div></td>
             <% } %>
           </tr>
           <tr>
-            <td>Cs.G.</td>
+            <td><a href="#" onclick="tanarGomb(4)">Cs.G.</a></td>
             <td>4. óra</td>
             <% for (var i = 0; i < 5; i++) { %>
-            <td><div><div></div></div></td>
+            <td><div id="<%= 15+i+1 %>">X<div></div></div></td>
             <% } %>
           </tr>
           <tr>
-            <td>C.I.</td>
+            <td><a href="#" onclick="tanarGomb(5)">Cz.I.</a></td>
             <td>5. óra</td>
             <% for (var i = 0; i < 5; i++) { %>
-            <td><div><div></div></div></td>
+            <td><div id="<%= 20+i+1 %>">X<div></div></div></td>
             <% } %>
           </tr>
           <tr>
             <td></td>
             <td>6. óra</td>
+            <% for (var i = 0; i < 5; i++) { %>
+            <td><div id="<%= 25+i+1 %>">X<div></div></div></td>
+            <% } %>
           </tr>
           <tr>
             <td></td>
             <td>7. óra</td>
+            <% for (var i = 0; i < 5; i++) { %>
+            <td><div id="<%= 30+i+1 %>">X<div></div></div></td>
+            <% } %>
           </tr>
           <tr>
             <td></td>
             <td>8. óra</td>
+            <% for (var i = 0; i < 5; i++) { %>
+            <td><div id="<%= 35+i+1 %>">X<div></div></div></td>
+            <% } %>
           </tr>
         </tbody>
       </table>
