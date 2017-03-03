@@ -3,15 +3,48 @@
   <head>
     <title>Newmain</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../Stylesheets/NewMain_Stylesheet.css">
   </head>
   <body>
     <script type="text/javascript">
       var oraData = <%-JSON.stringify(oraarray) %>;
+      var feher = "black";
+      var fekete = "black";
 
       function Update(){
+        event.preventDefault();
+        //console.log(oraData);
+        
         var url = window.location.search.substring(1);
-        console.log(url);
-        console.log(oraData[1]);
+        var OraTalalat = OraKeres(url);
+        
+        Szinezes(feher);
+        
+        KivalasztEsSzinez(OraTalalat, fekete);
+      }
+
+      function OraKeres(oraszam){
+        console.log(oraData);
+        var tomb = oraData[0][101]
+        for (var i = 0; i < oraData.length; i++){
+          if(oraData[i] == oraszam){
+            return oraData[i];
+            break;
+          }
+        }
+      }
+
+      function Szinezes(szin){
+        for (var i = 1; i <= 40; i++){
+          document.getElementById(i.toString()).style.backgroundColor = szin;
+        }
+      }
+
+      function KivalasztEsSzinez(oraszam, szin){
+        for (var i = 0; i < oraszam.length; i++){
+          var id = oraszam[i].megj;
+          document.getElementById(id).style.backgroundColor = szin;
+        }
       }
 
     </script>
