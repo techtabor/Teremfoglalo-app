@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   </head>
   <body>
-    <script type="application/json" src="../Data/OraId.json"></script>
     <script type="text/javascript">
+      var oraData = <%-JSON.stringify(oraarray) %>;
 
-      function pamacs(){
+      function Update(){
         var url = window.location.search.substring(1);
-        var mydata = JSON.parse();
         console.log(url);
+        console.log(oraData[1]);
       }
 
     </script>
@@ -20,7 +20,7 @@
         <thead>
           <tr>
             <th>Teremszámok:</th>
-            <th><a href="?101" onclick="pamacs()">42</a></th>
+            <th><a href="?101" onclick="Update()">42</a></th>
             <th><a href="#" >43</a></th>
             <th><a href="#" >44</a></th>
             <th><a href="#" >420</a></th>

@@ -12,7 +12,7 @@ for (var i = 0; i < hossz; i++){
 router.get('/', function(req, res){
     res.render('../views/NewMain.ejs',
     	{
-    		
+    		oraarray: oraarray
     	});
     //res.json(orak);
     console.log("Request jött a homepage-re");
