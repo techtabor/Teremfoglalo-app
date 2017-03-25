@@ -1,23 +1,22 @@
 var express = require('express');
 var router = express.Router();
-var orak = require('../Data/OraID.json');
-
-var hossz = orak.minden.length;
-var oraarray = new Array(hossz);
-
-for (var i = 0; i < hossz; i++){
-	oraarray[i] = orak.minden[i];
-}
+var orak = require('../Data/OraId.json');
 
 router.get('/', function(req, res){
+    var teremOrak = [];
+    if (req.query.terem != undefined && orak[req.query.terem] != undefined) {
+        teremOrak = orak[req.query.terem];
+    }
+    var termek = [];
+    for (teremNev in orak) {
+        termek.push(teremNev)
+    }
     res.render('../views/NewMain.ejs',
-    	{
-    		oraarray: oraarray
-    	});
-    //res.json(orak);
+        {
+            oraarray : teremOrak,
+            termek: termek,
+        });
     console.log("Request jött a homepage-re");
 });
-
-//router.get('/submit')
 
 module.exports = router;

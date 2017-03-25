@@ -8,64 +8,43 @@
   <body>
     <script type="text/javascript">
       var oraData = <%-JSON.stringify(oraarray) %>;
-      var feher = "black";
-      var fekete = "black";
 
       function Update(){
-        event.preventDefault();
-        //console.log(oraData);
-        
-        var url = window.location.search.substring(1);
-        var OraTalalat = OraKeres(url);
-        
-        Szinezes(feher);
-        
-        KivalasztEsSzinez(OraTalalat, fekete);
-      }
-
-      function OraKeres(oraszam){
         console.log(oraData);
-        var tomb = oraData[0][101]
-        for (var i = 0; i < oraData.length; i++){
-          if(oraData[i] == oraszam){
-            return oraData[i];
-            break;
-          }
+        for (var i = 0; i < oraData.length; i++) {
+          var element = document.getElementById(oraData[i].id)
+          element.innerHTML = oraData[i].value;
+          element.className += " warning";
         }
+        
       }
 
-      function Szinezes(szin){
-        for (var i = 1; i <= 40; i++){
-          document.getElementById(i.toString()).style.backgroundColor = szin;
-        }
-      }
-
-      function KivalasztEsSzinez(oraszam, szin){
-        for (var i = 0; i < oraszam.length; i++){
-          var id = oraszam[i].megj;
-          document.getElementById(id).style.backgroundColor = szin;
-        }
+      window.onload = function() {
+        Update();
       }
 
     </script>
-    <div class="container-fluid"; style="text-align:center">
+    <div class="container-fluid">
+      <form class="form-inline" action="/" method="get">
+        <label>Terem:</label>
+        <select name="terem">
+          <% for (var i = 0; i < termek.length; i++) { %>
+            <option value="<%= termek[i] %>"><%= termek[i] %></option>
+          <% }; %>
+        </select>
+        <button type="submit" class="btn btn-default">Kiválaszt</button>
+      </form>
+    </div>
+    <div class="container-fluid" style="text-align:center">
       <table class="table table-stripped table-bordered table-hover table-condensed table-responsive"; style="text-align:center">
         <thead>
           <tr>
-            <th>Teremszámok:</th>
-            <th><a href="?101" onclick="Update()">42</a></th>
-            <th><a href="#" >43</a></th>
-            <th><a href="#" >44</a></th>
-            <th><a href="#" >420</a></th>
-            <th><a href="#" >69</a></th>
-          </tr>
-          <tr>
-            <th>Tanárok:</th>
-  					<th class="active"; id="hetfo"; style="text-align:center">Hétfő</th>
-  					<th class="success"; id="kedd"; style="text-align:center">Kedd</th>
-  					<th class="warning"; id="szerda"; style="text-align:center">Szerda</th>
-  					<th class="info"; id="csutortok"; style="text-align:center">Csütörtök</th>
-  					<th class="danger"; id="pentek"; style="text-align:center">Péntek</th>
+            <th></th>
+  					<th class="active" id="hetfo" style="text-align:center">Hétfő</th>
+  					<th class="success" id="kedd" style="text-align:center">Kedd</th>
+  					<th class="warning" id="szerda" style="text-align:center">Szerda</th>
+  					<th class="info" id="csutortok" style="text-align:center">Csütörtök</th>
+  					<th class="danger" id="pentek" style="text-align:center">Péntek</th>
           </tr>
         </thead>
         <tbody>

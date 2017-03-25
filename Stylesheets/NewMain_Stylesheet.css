@@ -2,3 +2,7 @@ th {
 	box-sizing: "border-box";
 	width: "16%";
 }
+
+form {
+	padding: 20px 0px;
+}
