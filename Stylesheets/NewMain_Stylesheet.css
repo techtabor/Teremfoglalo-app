@@ -1,0 +1,12 @@
+th {
+	box-sizing: "border-box";
+	width: "16%";
+}
+
+.teremForm {
+	padding: 20px 0px;
+}
+
+.oraForm{
+	display: none;
+}
