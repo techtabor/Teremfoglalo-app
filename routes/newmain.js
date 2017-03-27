@@ -1,24 +1,59 @@
 var express = require('express');
+var fs = require('fs');
 var router = express.Router();
 var orak = require('../Data/OraId.json');
 var terem = "";
+var termek = [];
+for (teremNev in orak) {
+    termek.push(teremNev)
+}
 
 router.get('/', function(req, res){
     var teremOrak = [];
     if (req.query.terem != undefined && orak[req.query.terem] != undefined) {
         terem = req.query.terem;
-        teremOrak = orak[req.query.terem];
-    }
-    var termek = [];
-    for (teremNev in orak) {
-        termek.push(teremNev)
+        teremOrak = orak[terem];
     }
     res.render('../views/NewMain.ejs',
         {
             oraarray : teremOrak,
             termek: termek,
         });
-    console.log("Request jött a homepage-re");
+    console.log("Get request jött a homepage-re");
+});
+
+router.post('/', function(req, res){
+	var sorszam = req.body.id;
+  	var name = req.body.name;
+  	var newOra = {id: sorszam, value: name};
+  	var bentvan = false;
+  	for (var i = 0; i < orak[terem].length; i++){
+  		if (orak[terem][i].id == sorszam){
+  			orak[terem][i].value = name;
+  			bentvan = true;
+  		}
+  		if (orak[terem][i].value == ""){
+  			orak[terem].splice(i, 1);
+  		}
+  	}
+  	if (!bentvan && name != "") {
+  		orak[terem].push(newOra);
+  	}
+  	teremOrak = orak[terem];
+  	res.render('../views/NewMain.ejs',
+        {
+            oraarray : teremOrak,
+            termek: termek,
+        });
+  	console.log("Post request " + sorszam + " " + name);
+	var json = JSON.stringify(orak); 
+    fs.writeFile('Data/OraId.json', json, function(err){
+    	if(err){
+    		return console.log(err);
+    	}else{
+    		console.log("File saved!");
+    	}
+    });
 });
 
 module.exports = router;

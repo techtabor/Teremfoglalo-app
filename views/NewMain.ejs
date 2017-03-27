@@ -19,7 +19,13 @@
         
       }
       function oraClicked(id) {
-        document.getElementById("form-" + id).style.display = "block";
+        var element = document.getElementById("form-" + id);
+        if (element.style.display == "block") {
+          //element.style.display = "none";
+        } else {
+          element.style.display = "block";
+        }
+        //Kitölteni a szövegdobozt az eredeti szöveggel
       }
 
       window.onload = function() {
@@ -58,9 +64,9 @@
                   <td><%= i + 1 %>. óra</td>
                 <% } else { %>
                   <td id=<%= i*5+j %> onclick="oraClicked(<%= i*5+j %>)">
-                    <form id="form-<%= i*5+j %>" class="oraForm form-inline" action="/submit" method="post">
+                    <form id="form-<%= i*5+j %>" class="oraForm form-inline" action="/" method="post">
                       <input type="text" name="name"></input>
-                      <input type="hidden" name="id" value=<%= i*5+j %>/>
+                      <input type="hidden" name="id" value="<%= i*5+j %>"></input>
                       <button type="submit" class="btn btn-default">Módosít</button>
                     </form>
                   </td>
