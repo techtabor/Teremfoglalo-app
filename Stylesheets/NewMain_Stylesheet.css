@@ -3,6 +3,10 @@ th {
 	width: "16%";
 }
 
-form {
+.teremForm {
 	padding: 20px 0px;
+}
+
+.oraForm{
+	display: none;
 }

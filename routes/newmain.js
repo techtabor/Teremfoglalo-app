@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var orak = require('../Data/OraId.json');
+var terem = "";
 
 router.get('/', function(req, res){
     var teremOrak = [];
     if (req.query.terem != undefined && orak[req.query.terem] != undefined) {
+        terem = req.query.terem;
         teremOrak = orak[req.query.terem];
     }
     var termek = [];
