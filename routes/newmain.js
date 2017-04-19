@@ -8,18 +8,50 @@ for (teremNev in orak) {
     termek.push(teremNev)
 }
 
+/*function Update(){
+	orak = require('../Data/OraId.json');
+	termek = [];
+	for (teremNev in orak) {
+		termek.push(teremNev)
+	}
+}*/
+
 router.get('/', function(req, res){
     var teremOrak = [];
     if (req.query.terem != undefined && orak[req.query.terem] != undefined) {
         terem = req.query.terem;
         teremOrak = orak[terem];
     }
+
     res.render('../views/NewMain.ejs',
         {
             oraarray : teremOrak,
             termek: termek,
         });
     console.log("Get request jött a homepage-re");
+
+    if (req.query.ujterem != undefined){
+    	ujterem = req.query.ujterem;
+    	var stringorak = JSON.stringify(orak);
+    	stringorak = stringorak.slice(0, -1);
+    	var modifiedorak = stringorak + ',' + '"' + ujterem + '":' + '[]' + '}';
+    	orak = JSON.parse(modifiedorak);
+    }
+    var json = JSON.stringify(orak); 
+    fs.writeFile('Data/OraId.json', json, function(err){
+    	if(err){
+    		return console.log(err);
+    	}else{
+    		console.log("File saved!");		
+    	}
+    });
+
+    termek = [];
+	for (teremNev in orak) {
+    	termek.push(teremNev)
+	}
+
+    console.log(orak);
 });
 
 router.post('/', function(req, res){
