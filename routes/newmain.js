@@ -15,6 +15,17 @@ for (teremNev in orak) {
 	}
 }*/
 
+function SaveFile(file){
+    var json = JSON.stringify(file); 
+    fs.writeFile('Data/OraId.json', json, function(err){
+    	if(err){
+    		return console.log(err);
+    	}else{
+    		console.log("File saved!");		
+    	}
+    });
+}
+
 router.get('/', function(req, res){
     var teremOrak = [];
     var terem = "";
@@ -23,27 +34,22 @@ router.get('/', function(req, res){
         teremOrak = orak[terem];
     }
 
-    if (req.query.ujterem != undefined){
-    	ujterem = req.query.ujterem;
+    if (req.query.ujterem != undefined && req.query.ujterem.trim().length != 0){
+    	ujterem = req.query.ujterem.trim();
     	terem = ujterem;
-    	var stringorak = JSON.stringify(orak);
-    	stringorak = stringorak.slice(0, -1);
-    	var modifiedorak = stringorak + ',' + '"' + ujterem + '":' + '[]' + '}';
-    	orak = JSON.parse(modifiedorak);
+    	if (!orak.hasOwnProperty(ujterem)){
+	    	var stringorak = JSON.stringify(orak);
+	    	stringorak = stringorak.slice(0, -1);
+	    	var modifiedorak = stringorak + ',' + '"' + ujterem + '":' + '[]' + '}';
+	    	orak = JSON.parse(modifiedorak);
+    	}
     }
 
     if (req.query.toroltTerem != undefined){
     	delete orak[req.query.toroltTerem];
     }
 
-    var json = JSON.stringify(orak); 
-    fs.writeFile('Data/OraId.json', json, function(err){
-    	if(err){
-    		return console.log(err);
-    	}else{
-    		console.log("File saved!");		
-    	}
-    });
+    SaveFile(orak);
 
     termek = [];
 	for (teremNev in orak) {
@@ -67,35 +73,36 @@ router.post('/', function(req, res){
   	var name = req.body.name;
   	var terem = req.body.terem;
 	console.log("Post request " + terem + " " + sorszam + " " + name);
-  	var newOra = {id: sorszam, value: name};
-  	var bentvan = false;
-  	for (var i = 0; i < orak[terem].length; i++){
-  		if (orak[terem][i].id == sorszam){
-  			orak[terem][i].value = name;
-  			bentvan = true;
-  		}
-  		if (orak[terem][i].value == ""){
-  			orak[terem].splice(i, 1);
-  		}
-  	}
-  	if (!bentvan && name != "") {
-  		orak[terem].push(newOra);
-  	}
-  	teremOrak = orak[terem];
+	if (orak.hasOwnProperty(terem)){
+		var newOra = {id: sorszam, value: name};
+	  	var bentvan = false;
+	  	for (var i = 0; i < orak[terem].length; i++){
+	  		if (orak[terem][i].id == sorszam){
+	  			orak[terem][i].value = name;
+	  			bentvan = true;
+	  		}
+	  		if (orak[terem][i].value == ""){
+	  			orak[terem].splice(i, 1);
+	  		}
+	  	}
+	  	
+	  	if (!bentvan && name != "") {
+	  		orak[terem].push(newOra);
+	  	}
+
+	  	teremOrak = orak[terem];
+	} else {
+	 	teremOrak = [];
+	}
+
   	res.render('../views/NewMain.ejs',
         {
             oraarray : teremOrak,
             termek: termek,
             terem: terem,
         });
-	var json = JSON.stringify(orak); 
-    fs.writeFile('Data/OraId.json', json, function(err){
-    	if(err){
-    		return console.log(err);
-    	}else{
-    		console.log("File saved!");
-    	}
-    });
+
+  	SaveFile(orak);
 });
 
 module.exports = router;
