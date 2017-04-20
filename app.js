@@ -5,7 +5,7 @@ var app = express();
 var bodyParser = require('body-parser');
 
 var main = require('./routes/main.js');
-var submit = require('./routes/submit.js');
+//var submit = require('./routes/submit.js');
 var newmain = require('./routes/newmain.js')
 //var orak = require('./Data/orak.json');
 
@@ -27,7 +27,7 @@ app.use('/', newmain);
     }
 });*/
 
-app.use('/submit', submit);
+//app.use('/submit', submit);
 
 /*app.post('/submit', function(req, res){
   console.log("Someone submitted a form");
