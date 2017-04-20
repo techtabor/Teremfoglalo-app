@@ -25,6 +25,7 @@ router.get('/', function(req, res){
 
     if (req.query.ujterem != undefined){
     	ujterem = req.query.ujterem;
+    	terem = ujterem;
     	var stringorak = JSON.stringify(orak);
     	stringorak = stringorak.slice(0, -1);
     	var modifiedorak = stringorak + ',' + '"' + ujterem + '":' + '[]' + '}';
@@ -65,6 +66,7 @@ router.post('/', function(req, res){
 	var sorszam = req.body.id;
   	var name = req.body.name;
   	var terem = req.body.terem;
+	console.log("Post request " + terem + " " + sorszam + " " + name);
   	var newOra = {id: sorszam, value: name};
   	var bentvan = false;
   	for (var i = 0; i < orak[terem].length; i++){
@@ -86,7 +88,6 @@ router.post('/', function(req, res){
             termek: termek,
             terem: terem,
         });
-  	console.log("Post request " + sorszam + " " + name);
 	var json = JSON.stringify(orak); 
     fs.writeFile('Data/OraId.json', json, function(err){
     	if(err){
