@@ -10,7 +10,7 @@
       var oraData = <%-JSON.stringify(oraarray) %>;
 
       function Update(){
-        console.log(oraData);
+        //console.log(oraData);
         for (var i = 0; i < oraData.length; i++) {
           var element = document.getElementById(oraData[i].id)
           element.innerHTML += "<p>" + oraData[i].value + "</p>";
@@ -19,12 +19,21 @@
         
       }
       function oraClicked(id) {
-        var element = document.getElementById("form-" + id);
-        if (element.style.display == "block") {
-          //element.style.display = "none";
-        } else {
-          element.style.display = "block";
+        for (var i = 1; i < 41; i++){
+          document.getElementById("form-" + i).style.display = "none";
         }
+        var element = document.getElementById("form-" + id);
+        if (element.style.display != "block") {
+          element.style.display = "block";
+          oraId = parseInt(id);
+          for (var i = 0; i < oraData.length; i++) {
+            if(oraData[i].id == oraId) {
+              document.getElementById("input-" + id).placeholder = oraData[i].value;
+            }
+          }
+          
+        }
+
         //Kitölteni a szövegdobozt az eredeti szöveggel
       }
 
@@ -34,15 +43,32 @@
 
     </script>
     <div class="container-fluid">
+
       <form class="form-inline teremForm" action="/" method="get">
         <label>Terem:</label>
         <select name="terem">
           <% for (var i = 0; i < termek.length; i++) { %>
-            <option value="<%= termek[i] %>"><%= termek[i] %></option>
+            <option value="<%= termek[i] %>" <% if (termek[i] == terem){ %> selected="selected" <% } %>><%= termek[i] %></option>
           <% }; %>
         </select>
         <button type="submit" class="btn btn-default">Kiválaszt</button>
       </form>
+
+      <form class="form-inline" action="/" method="get">
+        <input type="text" name="ujterem">
+        <button type="submit" class="btn btn-default">Új terem hozzáadása</button>   
+      </form>
+
+      <form class="form-inline teremForm" action="/" method="get">
+        <label>Terem törlése:</label>
+        <select name="toroltTerem">
+          <% for (var i = 0; i < termek.length; i++) { %>
+            <option value="<%= termek[i] %>" <% if (termek[i] == terem){ %> selected="selected" <% } %>><%= termek[i] %></option>
+          <% }; %>
+        </select>
+        <button type="submit" class="btn btn-default">Törlés</button>
+      </form>
+
     </div>
     <div class="container-fluid" style="text-align:center">
       <table class="table table-stripped table-bordered table-hover table-condensed table-responsive"; style="text-align:center">
@@ -65,8 +91,9 @@
                 <% } else { %>
                   <td id=<%= i*5+j %> onclick="oraClicked(<%= i*5+j %>)">
                     <form id="form-<%= i*5+j %>" class="oraForm form-inline" action="/" method="post">
-                      <input type="text" name="name"></input>
+                      <input id="input-<%= i*5+j %>" type="text" name="name"></input>
                       <input type="hidden" name="id" value="<%= i*5+j %>"></input>
+                      <input type="hidden" name="terem" value="<%= terem %>"></input>
                       <button type="submit" class="btn btn-default">Módosít</button>
                     </form>
                   </td>
