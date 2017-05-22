@@ -8,6 +8,7 @@
   <body>
     <script type="text/javascript">
       var oraData = <%-JSON.stringify(oraarray) %>;
+      var termek = <%-JSON.stringify(termek) %>;
 
       function Update(){
         //console.log(oraData);
@@ -19,9 +20,12 @@
         
       }
       function oraClicked(id) {
-        for (var i = 1; i < 41; i++){
+        for (var i = 1; i < 41; i++) {
           document.getElementById("form-" + i).style.display = "none";
         }
+        if (termek.length < 1) {
+          return;
+        }  
         var element = document.getElementById("form-" + id);
         if (element.style.display != "block") {
           element.style.display = "block";
@@ -44,10 +48,7 @@
     </script>
     <br>
     <div class="container-fluid">
-      
-
       <form class="form-inline teremForm" action="/" method="get">
-        <label></label>
         <label>Terem:</label>
         <select name="terem">
           <% for (var i = 0; i < termek.length; i++) { %>
@@ -71,7 +72,8 @@
         </select>
         <button type="submit" class="btn btn-default">Törlés</button>
       </form>
-
+      
+      
     </div>
     <br>
     <div class="container-fluid" style="text-align:center">
@@ -108,5 +110,34 @@
         </tbody>
       </table>
     </div>
+    <div>
+      <form class="form-inline teremForm" action="/search" method="get">
+        <label>Üres terem keresése (nap, óra):</label>
+        <select name="nap">
+          <option value="1" <% if (1 == nap){ %> selected="selected" <% } %>>Hétfő</option>
+          <option value="2" <% if (2 == nap){ %> selected="selected" <% } %>>Kedd</option>
+          <option value="3" <% if (3 == nap){ %> selected="selected" <% } %>>Szerda</option>
+          <option value="4" <% if (4 == nap){ %> selected="selected" <% } %>>Csütörtök</option>
+          <option value="5" <% if (5 == nap){ %> selected="selected" <% } %>>Péntek</option>
+        </select>
+        <select name="ora">
+          <option value="0" <% if (0 == ora){ %> selected="selected" <% } %>>1. óra</option>
+          <option value="1" <% if (1 == ora){ %> selected="selected" <% } %>>2. óra</option>
+          <option value="2" <% if (2 == ora){ %> selected="selected" <% } %>>3. óra</option>
+          <option value="3" <% if (3 == ora){ %> selected="selected" <% } %>>4. óra</option>
+          <option value="4" <% if (4 == ora){ %> selected="selected" <% } %>>5. óra</option>
+          <option value="5" <% if (5 == ora){ %> selected="selected" <% } %>>6. óra</option>
+          <option value="6" <% if (6 == ora){ %> selected="selected" <% } %>>7. óra</option>
+          <option value="7" <% if (7 == ora){ %> selected="selected" <% } %>>8. óra</option>
+        </select>
+        <input type="hidden" name="terem" value="<%= terem %>"></input>
+        <button type="submit" class="btn btn-default">Keres</button>
+      </form>
+      <p id="keresesEredmeny">
+        <% for (var i = 0; i < szabadTermek.length; i++) { %>
+          <%=szabadTermek[i] %><br>
+        <% }; %>
+      </p>
+    </div
   </body>
 </html>

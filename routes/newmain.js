@@ -15,6 +15,37 @@ for (teremNev in orak) {
 	}
 }*/
 
+router.get('/search', function (req, res){
+    var terem = req.query.terem;
+    teremOrak = orak[terem];
+    termek = [];
+    var id = parseInt(req.query.ora) * 5 + parseInt(req.query.nap);
+    console.log(id);
+    var szabadTermek = [];
+    for (teremNev in orak) {
+      termek.push(teremNev);
+      var szabad = true;
+      for (var i = 0; i < orak[teremNev].length; i++) {
+        if ( orak[teremNev][i].id == id) {
+          szabad = false;
+        }
+      }
+      if (szabad) {
+        szabadTermek.push(teremNev);
+      }
+    }
+    console.log(szabadTermek);
+    res.render('../views/NewMain.ejs',
+        {
+            oraarray : teremOrak,
+            termek: termek,
+            terem: terem,
+            szabadTermek: szabadTermek,
+            nap: req.query.nap,
+            ora: req.query.ora,
+        });
+});
+
 router.get('/', function(req, res){
     var teremOrak = [];
     var terem = "";
@@ -23,6 +54,7 @@ router.get('/', function(req, res){
         teremOrak = orak[terem];
     } else {
       terem = Object.keys(orak)[0];
+      teremOrak = orak[terem];
     }
 
     if (req.query.ujterem != undefined){
@@ -37,6 +69,7 @@ router.get('/', function(req, res){
     	  modifiedorak = stringorak + ',' + '"' + ujterem + '":' + '[]' + '}';
       }
     	orak = JSON.parse(modifiedorak);
+      teremOrak = orak[terem];
     }
 
     if (req.query.toroltTerem != undefined){
@@ -54,7 +87,7 @@ router.get('/', function(req, res){
 
     termek = [];
 	for (teremNev in orak) {
-    	termek.push(teremNev)
+    	termek.push(teremNev);
 	}
 
     console.log(orak);
@@ -64,16 +97,19 @@ router.get('/', function(req, res){
             oraarray : teremOrak,
             termek: termek,
             terem: terem,
+            szabadTermek: [],
+            nap: "",
+            ora: "",
         });
     console.log("Get request jött a homepage-re");
 
 });
 
 router.post('/', function(req, res){
-	var sorszam = req.body.id;
+	  var sorszam = req.body.id;
   	var name = req.body.name;
   	var terem = req.body.terem;
-	console.log("Post request " + terem + " " + sorszam + " " + name);
+	  console.log("Post request " + terem + " " + sorszam + " " + name);
   	var newOra = {id: sorszam, value: name};
   	var bentvan = false;
   	for (var i = 0; i < orak[terem].length; i++){
@@ -94,6 +130,9 @@ router.post('/', function(req, res){
             oraarray : teremOrak,
             termek: termek,
             terem: terem,
+            szabadTermek: [],
+            nap: "",
+            ora: "",
         });
 	var json = JSON.stringify(orak); 
     fs.writeFile('Data/OraId.json', json, function(err){
