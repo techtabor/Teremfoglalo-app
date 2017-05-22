@@ -21,6 +21,8 @@ router.get('/', function(req, res){
     if (req.query.terem != undefined && orak[req.query.terem] != undefined) {
         terem = req.query.terem;
         teremOrak = orak[terem];
+    } else {
+      terem = Object.keys(orak)[0];
     }
 
     if (req.query.ujterem != undefined){
@@ -28,7 +30,12 @@ router.get('/', function(req, res){
     	terem = ujterem;
     	var stringorak = JSON.stringify(orak);
     	stringorak = stringorak.slice(0, -1);
-    	var modifiedorak = stringorak + ',' + '"' + ujterem + '":' + '[]' + '}';
+      var modifiedorak;
+      if (Object.keys(orak).length == 0 ) {
+        modifiedorak = stringorak + '"' + ujterem + '":' + '[]' + '}';
+      } else {
+    	  modifiedorak = stringorak + ',' + '"' + ujterem + '":' + '[]' + '}';
+      }
     	orak = JSON.parse(modifiedorak);
     }
 
