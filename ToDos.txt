@@ -1,0 +1,7 @@
+Szóval:
+
+A jelszónak és ismétlésének meg kell egyeznie.
+A megadott adatok között nem lehet 2 ugyanolyan.
+A megadott adatok nem tartalmazhatnak "" jelet.
+Nagyjából ennyi Dani szerint az első kör.
+Dani szerint ezek tök egyszerűek (de nem azok).

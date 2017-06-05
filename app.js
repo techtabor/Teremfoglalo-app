@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 
 var main = require('./routes/main.js');
 var login = require('./routes/login.js');
+var registrate = require('./routes/registrate.js');
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname));
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', main);
 app.use('/login', login);
+app.use('/registrate', registrate);
 
 //create http server
 http.createServer(app).listen(3000);
