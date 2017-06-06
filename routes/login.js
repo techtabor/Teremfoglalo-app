@@ -11,15 +11,11 @@ router.get('/', function(req, res){
 router.post('/', function(req, res){
 	loginName = req.body.username;
 	password = req.body.psw;
-	console.log("Post megjött a loginra");
-	console.log("Username: " + loginName + " password: " + password);
 	for (name in userInfo.users){
-		console.log("Ciklusváltozó: " + name);
-		console.log("For ciklus elindult");
-		console.log("Foron belül: Name: " + name.username + " psw: " + name.psw);
 		if (userInfo.users[name].username == loginName && userInfo.users[name].psw == password){
 			res.render('../views/loginSuccess.ejs');
-			console.log("Valaki belépett");
+			res.cookie('username', loginName, {});
+			console.log(loginName + " belépett, a jelszava: " + password);
 		}
 	}
 });
