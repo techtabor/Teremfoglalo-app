@@ -2,112 +2,114 @@
 <html>
 <head>
 	<title>Login</title>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="/path/to/jquery.cookie.js"></script>
 </head>
 <body>
-	<div>
-		<table>
-			<tr>
-				<td colspan="2"><h1>Bejelentkezés</h1></td>
-			</tr>
-			<form action="/login" method="POST">
+	<div class="centered">
+		<div>
+			<table class="table">
 				<tr>
-					<td>
-						<label>Felhasználónév:</label>
-					</td>
-					<td>
-						<input type="text" name="username" autofocus>
-					</td>
+					<td colspan="2"><h1>Bejelentkezés</h1></td>
 				</tr>
-				<tr>
-					<td>
-						<label>Jelszó:</label>
-					</td>
-					<td>
-						<input type="password" name="psw">
-						<br>
-					</td>
-				</tr>
+				<form action="/login" method="POST">
+					<tr>
+						<td>
+							<label>Felhasználónév:</label>
+						</td>
+						<td>
+							<input type="text" name="username" autofocus>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Jelszó:</label>
+						</td>
+						<td>
+							<input type="password" name="psw">
+							<br>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button type="submit" class="btn btn-default">Belépés</button>
+						</td>
+					</tr>
+				</form>
+			</table>
+		</div>
+		<div>
+			<table class="table">
 				<tr>
 					<td colspan="2">
-						<button type="submit">Belépés</button>
+						<h1>Regisztráció</h1>
 					</td>
 				</tr>
-			</form>
-		</table>
+				<form action="/registrate" method="POST">
+					<tr>
+						<td>
+							<label>Felhasználónév:</label>
+						</td>
+						<td>
+							<input type="text" name="username">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Vezetéknév:</label>
+						</td>
+						<td>
+							<input type="text" name="lastname">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Keresztnév:</label>
+						</td>
+						<td>
+							<input type="text" name="firstname">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>E-mail:</label>
+						</td>
+						<td>
+							<input class="password" id="psw1" type="email" name="EMail" value="">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Jelszó:</label>
+						</td>
+						<td>
+							<input class="password" id="psw2" type="password" name="psw" value="">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Jelszó még egyszer:</label>
+						</td>
+						<td>
+							<input type="password" name="pswAgain">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="radio" name="status" value="teacher" checked>Tanár 
+							<input type="radio" name="status" value="student">Diák
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button type="submit" class="btn btn-default">Regisztráció</button>
+						</td>
+					</tr>
+				</form>
+			</table>
+		</div>
 	</div>
-	<div>
-		<table>
-			<tr>
-				<td colspan="2">
-					<h1>Regisztráció</h1>
-				</td>
-			</tr>
-			<form action="/registrate" method="POST">
-				<tr>
-					<td>
-						<label>Felhasználónév:</label>
-					</td>
-					<td>
-						<input type="text" name="username">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>Vezetéknév:</label>
-					</td>
-					<td>
-						<input type="text" name="lastname">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>Keresztnév:</label>
-					</td>
-					<td>
-						<input type="text" name="firstname">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>E-mail:</label>
-					</td>
-					<td>
-						<input class="password" id="psw1" type="email" name="EMail" value="">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>Jelszó:</label>
-					</td>
-					<td>
-						<input class="password" id="psw2" type="password" name="psw" value="">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>Jelszó még egyszer:</label>
-					</td>
-					<td>
-						<input type="password" name="pswAgain">
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<input type="radio" name="status" value="teacher" checked>Tanár 
-						<input type="radio" name="status" value="student">Diák
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<button type="submit">Regisztráció</button>
-					</td>
-				</tr>
-			</form>
-		</table>
-	</div>	
 	<script type="text/javascript">
 	
 	</script>
